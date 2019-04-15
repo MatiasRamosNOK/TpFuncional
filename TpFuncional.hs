@@ -80,5 +80,6 @@ voc n|k=="a"||k=="e"||k=="i"||k=="o"||k=="u"=k++(voc (tail n))
 
 --Hasta aca punto 2--
 
+puedeRealizarTruco unAuto = ( nafta unAuto)>0 && (velocidad unAuto)<=100
 
- 
+--Hasta aca punto 3--

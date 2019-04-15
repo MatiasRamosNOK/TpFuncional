@@ -56,3 +56,29 @@ fingirAmor::Auto->String->Auto
 fingirAmor unAuto enamoradeNew = unAuto{
    enamorade = enamoradeNew
 }
+
+--Hasta aca punto 1 --
+
+incrementarVelocidad unAuto = unAuto {
+   velocidad = velocidad(unAuto)+(velocidadSegunVoc (enamorade unAuto))
+}
+
+velocidadSegunVoc::String->Integer
+velocidadSegunVoc enamoradeNombre 
+  | (calcularCantidadVoc enamoradeNombre) >=1 && (calcularCantidadVoc enamoradeNombre)<=2 = 15
+  | (calcularCantidadVoc enamoradeNombre) >=3 && (calcularCantidadVoc enamoradeNombre)<=4 = 20
+  | (calcularCantidadVoc enamoradeNombre) >=4 = 30
+  | otherwise = 0
+
+calcularCantidadVoc::String->Int
+calcularCantidadVoc lista = length (voc lista)
+voc::String->String
+voc ""=""
+voc n|k=="a"||k=="e"||k=="i"||k=="o"||k=="u"=k++(voc (tail n))
+     |otherwise=""++(voc (tail n))
+     where k=take 1 n
+
+--Hasta aca punto 2--
+
+
+ 

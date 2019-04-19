@@ -20,7 +20,7 @@ biankerr = Auto {
  velocidad = 20,
  enamorade = "Tinch",
  truco = "impresionar"
-}
+} 
 
 gushtav = Auto{
  nombre = "Gushtav",
@@ -52,12 +52,12 @@ nitro unAuto = unAuto{
    velocidad = velocidad(unAuto) + 15
 }
 
-fingirAmor::Auto->String->Auto
-fingirAmor unAuto enamoradeNew = unAuto{
-   enamorade = enamoradeNew
+fingirAmor::String->Auto->Auto
+fingirAmor enamoradeNew unAuto = unAuto{
+   enamorade = enamoradeNew 
 }
 
---Hasta aca punto 1 --
+--Hasta aca punto 3.1--
 
 incrementarVelocidad unAuto = unAuto {
    velocidad = velocidad(unAuto)+(velocidadSegunVoc (enamorade unAuto))
@@ -78,8 +78,26 @@ voc n|k=="a"||k=="e"||k=="i"||k=="o"||k=="u"=k++(voc (tail n))
      |otherwise=""++(voc (tail n))
      where k=take 1 n
 
---Hasta aca punto 2--
+--Hasta aca punto 3.2--
 
 puedeRealizarTruco unAuto = ( nafta unAuto)>0 && (velocidad unAuto)<=100
 
---Hasta aca punto 3--
+--Hasta aca punto 3.3--
+
+comboLoco unAuto = (deReversaRocha.nitro) unAuto
+
+queTrucazo unAuto nuevoEnamorade= (impresionar.fingirAmor(nuevoEnamorade)) unAuto
+
+turbo  = (llevarNaftaACero.aumentarVelocidad) 
+
+aumentarVelocidad unAuto = unAuto{
+   velocidad = velocidad(unAuto) + (cuantaNaftaTiene(unAuto)*10) 
+}
+
+cuantaNaftaTiene unAuto = nafta(unAuto)
+
+llevarNaftaACero unAuto = unAuto{
+   nafta = 0
+}
+
+--Hasta aca punto 3.4--

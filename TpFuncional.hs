@@ -38,8 +38,19 @@ rodra = Auto {
  truco = "fingirAmor"
 }
 
-deReversaRocha::Auto->Integer->Auto
-deReversaRocha unAuto longPista = unAuto { 
+deReversaRocha::Integer->Auto->Auto
+deReversaRocha longPista unAuto
+} 
+
+gushtav = Auto{
+ nombre = "Gushtav",
+ nafta = 200,
+ velocidad = 130,
+ enamorade = "PetiLaLinda",
+ truco = "nitro"
+}
+
+rodra = Auto { = unAuto { 
    nafta = nafta( unAuto ) + (div longPista 5)}
 
 impresionar::Auto->Auto
@@ -86,8 +97,8 @@ puedeRealizarTruco unAuto = ( nafta unAuto)>0 && (velocidad unAuto)<=100
 
 --Hasta aca punto 3.3--
 
-comboLoco::Auto->Auto
-comboLoco unAuto = (deReversaRocha.nitro) unAuto
+comboLoco::Auto->Integer->Auto
+comboLoco unAuto long = ((deReversaRocha(long)).nitro) unAuto
 
 queTrucazo::Auto->String->Auto
 queTrucazo unAuto nuevoEnamorade= (impresionar.fingirAmor(nuevoEnamorade)) unAuto
@@ -100,7 +111,7 @@ aumentarVelocidad unAuto = unAuto{
    velocidad = velocidad(unAuto) + (cuantaNaftaTiene(unAuto)*10) 
 }
 
-cuantaNaftaTiene::Auto->Int
+cuantaNaftaTiene::Auto->Integer
 cuantaNaftaTiene unAuto = nafta(unAuto)
 
 llevarNaftaACero::Auto->Auto

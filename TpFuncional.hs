@@ -59,6 +59,7 @@ fingirAmor enamoradeNew unAuto = unAuto{
 
 --Hasta aca punto 3.1--
 
+incrementarVelocidad::Auto->Auto
 incrementarVelocidad unAuto = unAuto {
    velocidad = velocidad(unAuto)+(velocidadSegunVoc (enamorade unAuto))
 }
@@ -80,22 +81,29 @@ voc n|k=="a"||k=="e"||k=="i"||k=="o"||k=="u"=k++(voc (tail n))
 
 --Hasta aca punto 3.2--
 
+puedeRealizarTruco::Auto->Bool
 puedeRealizarTruco unAuto = ( nafta unAuto)>0 && (velocidad unAuto)<=100
 
 --Hasta aca punto 3.3--
 
+comboLoco::Auto->Auto
 comboLoco unAuto = (deReversaRocha.nitro) unAuto
 
+queTrucazo::Auto->String->Auto
 queTrucazo unAuto nuevoEnamorade= (impresionar.fingirAmor(nuevoEnamorade)) unAuto
 
+turbo::Auto->Auto
 turbo  = (llevarNaftaACero.aumentarVelocidad) 
 
+aumentarVelocidad::Auto->Auto
 aumentarVelocidad unAuto = unAuto{
    velocidad = velocidad(unAuto) + (cuantaNaftaTiene(unAuto)*10) 
 }
 
+cuantaNaftaTiene::Auto->Int
 cuantaNaftaTiene unAuto = nafta(unAuto)
 
+llevarNaftaACero::Auto->Auto
 llevarNaftaACero unAuto = unAuto{
    nafta = 0
 }
